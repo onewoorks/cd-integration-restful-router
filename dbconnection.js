@@ -2,7 +2,7 @@ var mysql = require('mysql')
 var connection = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'root@123',
     database: 'integration_server'
 })
 
