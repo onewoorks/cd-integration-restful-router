@@ -12,13 +12,17 @@ var VsmWelchAllyn6000 = {
 
 	addVsmWelchAllyn6000 : function(VsmWelchAllyn6000, callback) {
 		return db.query(
-			"INSERT INTO patient_vsm VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+			"INSERT INTO patient_vsm " + 
+			"(reading, clinicianid, date, diastolic, height, hr, map, o2sat, pain, patientid, pulse, respiration, systolic, temperature, weight, bmi, iddevice) " + 
+			"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			[ VsmWelchAllyn6000.reading,
 				VsmWelchAllyn6000.clinicianid,
 				VsmWelchAllyn6000.date,
 				VsmWelchAllyn6000.diastolic,
-				VsmWelchAllyn6000.height, VsmWelchAllyn6000.hr,
-				VsmWelchAllyn6000.map, VsmWelchAllyn6000.o2sat,
+				VsmWelchAllyn6000.height, 
+				VsmWelchAllyn6000.hr,
+				VsmWelchAllyn6000.map, 
+				VsmWelchAllyn6000.o2sat,
 				VsmWelchAllyn6000.pain,
 				VsmWelchAllyn6000.patientid,
 				VsmWelchAllyn6000.pulse,
@@ -35,42 +39,15 @@ var VsmWelchAllyn6000 = {
 	},
 	
 	updateVsmWelchAllyn6000 : function(id, VsmWelchAllyn6000, callback) {
-		return db.query("UPDATE VsmWelchAllyn6000 SET " +
+		return db.query("UPDATE patient_vsm SET " +
 				"reading = ?, " +
 				"clinicianid = ?, " +
-				"date = ?, " +
-				"diastolic = ?, " +
-				"height = ?, " +
-				"hr = ?, " +
-				"map = ?, " +
-				"o2stat = ?, " +
-				"pain = ?, " +
-				"patientid = ?, " +
-				"pulse = ?, " +
-				"respiration = ?, " +
-				"systolic = ?, " +
-				"temperature = ?, " +
-				"weight = ?, " +
-				"bmi = ?, " +
-				"iddevice = ? ", [ 
-					VsmWelchAllyn6000.reading, 
-					VsmWelchAllyn6000.clinicianid,
-					VsmWelchAllyn6000.date,
-					VsmWelchAllyn6000.diastolic,
-					VsmWelchAllyn6000.height,
-					VsmWelchAllyn6000.hr, 
-					VsmWelchAllyn6000.map, 
-					VsmWelchAllyn6000.o2stat, 
-					VsmWelchAllyn6000.pain, 
-					VsmWelchAllyn6000.patientid, 
-					VsmWelchAllyn6000.pulse, 
-					VsmWelchAllyn6000.respiration, 
-					VsmWelchAllyn6000.systolic, 
-					VsmWelchAllyn6000.temperature, 
-					VsmWelchAllyn6000.weight, 
-					VsmWelchAllyn6000.bmi, 
-					VsmWelchAllyn6000.iddevice 
-				], callback);
+				"patientid = ? " + 
+				"WHERE id = ?", 
+				[ VsmWelchAllyn6000.reading, 
+					VsmWelchAllyn6000.clinicianid, 
+					VsmWelchAllyn6000.patientid,  
+					id ], callback);
 	}
 };
 
