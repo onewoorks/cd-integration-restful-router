@@ -9,6 +9,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var tasks = require('./routes/Task');
 var intraorals = require('./routes/intraorals');
+var vsmWelchAllyn6000 = require('./routes/vsmWelchAllyn6000');
+var vsmDevices = require('./routes/vsmDevices');
 
 var app = express();
 
@@ -26,6 +28,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/tasks', tasks);
 app.use('/intraorals', intraorals);
+app.use('/vsmWelchAllyn6000', vsmWelchAllyn6000);
+app.use('/vsmDevices', vsmDevices);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,5 +48,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(3000); // test
 
 module.exports = app;
