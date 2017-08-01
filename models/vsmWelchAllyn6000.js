@@ -9,6 +9,11 @@ var VsmWelchAllyn6000 = {
 		return db.query("SELECT * FROM patient_vsm WHERE id = ?", [ id ],
 				callback);
 	},
+	
+	getVsmWelchAllyn6000ByPatientId : function(id, callback) {
+		return db.query("SELECT * FROM patient_vsm WHERE patientid = ?", [ id ],
+				callback);
+	},
 
 	addVsmWelchAllyn6000 : function(VsmWelchAllyn6000, callback) {
 		return db.query(
