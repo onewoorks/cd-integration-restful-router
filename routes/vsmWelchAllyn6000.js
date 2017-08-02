@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
 	if(req.params.id) {
-		VsmWelchAllyn6000.getVsmWelchAllyn6000ById(req.params.id, function(err, rows) {
+		VsmWelchAllyn6000.getVsmWelchAllyn6000ByPatientId(req.params.id, function(err, rows) {
 			if(err)
 				res.json(err);
 			else
